@@ -38,6 +38,14 @@ class ProjectsView extends PolymerElement {
         <p>Later, I improved it a bit with live updates using Firebase: <a href="https://github.com/AntonFranzluebbers/Parking-Monitor-Firebase/">https://github.com/AntonFranzluebbers/Parking-Monitor-Firebase/</a></p>
         <p>Parking sensors read data using the scripts found in <a href="https://github.com/AntonFranzluebbers/Parking-Monitor-Sensor">https://github.com/AntonFranzluebbers/Parking-Monitor-Sensor</a></p>
       </div>
+      
+      <div class="card">
+        <h2>CSCI 4070 Game Programming</h2>
+        <h3>Pacman</h3>
+        <h3>"The Lorax" 2D Platformer</h3>
+        <h3>Search Algorithms</h3>
+        <h3></h3>
+      </div>
     `;
   }
 }

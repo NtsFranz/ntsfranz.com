@@ -42,34 +42,13 @@ class AntonFranzluebbers extends PolymerElement {
           display: block;
         }
 
-        app-drawer-layout:not([narrow]) [drawer-toggle] {
-          display: none;
-        }
-
         app-header {
-          color: #fff;
+          color: var(--dark-theme-base-color);
           background-color: var(--app-primary-color);
         }
 
         app-header paper-icon-button {
           --paper-icon-button-ink-color: white;
-        }
-
-        .drawer-list {
-          margin: 0 20px;
-        }
-
-        .drawer-list a {
-          display: block;
-          padding: 0 16px;
-          text-decoration: none;
-          color: var(--app-secondary-color);
-          line-height: 40px;
-        }
-
-        .drawer-list a.iron-selected {
-          color: black;
-          font-weight: bold;
         }
       </style>
 
@@ -79,33 +58,27 @@ class AntonFranzluebbers extends PolymerElement {
       <app-route route="{{route}}" pattern="[[rootPath]]:page" data="{{routeData}}" tail="{{subroute}}">
       </app-route>
 
-      <app-drawer-layout fullbleed="" narrow="{{narrow}}">
-        <!-- Drawer content -->
-        <app-drawer id="drawer" slot="drawer" swipe-open="[[narrow]]">
-          <app-toolbar>Menu</app-toolbar>
-          <iron-selector selected="[[page]]" attr-for-selected="name" class="drawer-list" role="navigation">
-            <a name="projects" href="[[rootPath]]projects">Projects</a>
-            <a name="links" href="[[rootPath]]links">Links</a>
-          </iron-selector>
-        </app-drawer>
+      <!-- Main content -->
+      <app-header-layout fullbleed has-scrolling-region="">
 
-        <!-- Main content -->
-        <app-header-layout has-scrolling-region="">
+        <app-header slot="header" condenses="" reveals="" effects="resize-title waterfall">
+          <app-toolbar>
+            <div main-title="">Anton Franzluebbers</div>
+            <!--<div condensed-title="">Anton F.</div>-->
+            <div>Projects</div>
+            <div>Links</div>
+          </app-toolbar>
+          <app-toolbar class="tall">
+            <div main-title="">Anton Franzluebbers</div>          
+          </app-toolbar>
+        </app-header>
 
-          <app-header slot="header" condenses="" reveals="" effects="waterfall">
-            <app-toolbar>
-              <paper-icon-button icon="my-icons:menu" drawer-toggle=""></paper-icon-button>
-              <div main-title="">Anton Franzluebbers</div>
-            </app-toolbar>
-          </app-header>
-
-          <iron-pages selected="[[page]]" attr-for-selected="name" role="main">
-            <projects-view name="projects"></projects-view>
-            <links-view name="links"></links-view>
-            <my-view404 name="view404"></my-view404>
-          </iron-pages>
-        </app-header-layout>
-      </app-drawer-layout>
+        <iron-pages selected="[[page]]" attr-for-selected="name" role="main">
+          <projects-view name="projects"></projects-view>
+          <links-view name="links"></links-view>
+          <my-view404 name="view404"></my-view404>
+        </iron-pages>
+      </app-header-layout>
     `;
   }
 
@@ -138,11 +111,6 @@ class AntonFranzluebbers extends PolymerElement {
       this.page = page;
     } else {
       this.page = 'view404';
-    }
-
-    // Close a non-persistent drawer when the page & route are changed.
-    if (!this.$.drawer.persistent) {
-      this.$.drawer.close();
     }
   }
 

@@ -14,31 +14,35 @@ const $_documentContainer = document.createElement('template');
 $_documentContainer.innerHTML = `<dom-module id="shared-styles">
   <template>
     <style>
+      body {
+        background-color: var(--dark-theme-background-color);
+      }
       .card {
         margin: 24px;
         padding: 16px;
-        color: #757575;
+        color: var(--dark-theme-base-color);
         border-radius: 5px;
-        background-color: #fff;
+        background-color: var(--paper-grey-800);
         box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);
-      }
-
-      .circle {
-        display: inline-block;
-        width: 64px;
-        height: 64px;
-        text-align: center;
-        color: #555;
-        border-radius: 50%;
-        background: #ddd;
-        font-size: 30px;
-        line-height: 64px;
       }
 
       h1 {
         margin: 16px 0;
-        color: #212121;
+        color: var(--dark-theme-base-color);
         font-size: 22px;
+      }
+      
+      a:link {
+        color: var(--paper-blue-300);
+      }
+      a:visited {
+        color: var(--paper-blue-500);
+      }
+      a:active {
+        color: var(--paper-blue-100);
+      }
+      a:hover {
+        color: var(--paper-blue-200);
       }
     </style>
   </template>

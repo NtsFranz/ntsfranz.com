@@ -30,7 +30,7 @@ class LinksView extends PolymerElement {
         <h2>Bitbucket</h2>
             <p><a href="https://bitbucket.org/AntonFranzluebbers/">https://bitbucket.org/AntonFranzluebbers/</a></p>
         <h2>Google+</h2>
-            <p><a href="https://plus.google.com/+AntonFranzluebbers"></a></p>
+            <p><a href="https://plus.google.com/+AntonFranzluebbers">https://plus.google.com/+AntonFranzluebbers</a></p>
       </div>
     `;
   }
