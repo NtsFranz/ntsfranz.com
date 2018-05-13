@@ -44,6 +44,8 @@ $_documentContainer.innerHTML = `<dom-module id="shared-styles">
       a:hover {
         color: var(--paper-blue-200);
       }
+      
+      
     </style>
   </template>
 </dom-module>`;

@@ -24,6 +24,7 @@ class ProjectsView extends PolymerElement {
 
 
       <h1>Personal Projects</h1>
+      <paper-card></paper-card>
       <div class="card">
         <h2>Sudoku Solver</h2>
         <p><a href="https://github.com/NtsFranz/SudokuSolver">https://github.com/NtsFranz/SudokuSolver</a></p>
@@ -42,9 +43,24 @@ class ProjectsView extends PolymerElement {
       <div class="card">
         <h2>CSCI 4070 Game Programming</h2>
         <h3>Pacman</h3>
+        <p>The assignment was to recreate a classic game with some additions (such as adding my face).</p>
+        <p><a href="http://cobweb.cs.uga.edu/~anton/projects/P1/index.html">http://cobweb.cs.uga.edu/~anton/projects/P1/index.html</a></p>
         <h3>"The Lorax" 2D Platformer</h3>
+        <p>The game needed to include walking, running, jumping, climbing (on vines), flying, and swimming.</p>
+        <p><a href="http://cobweb.cs.uga.edu/~anton/projects/P2/index.html">http://cobweb.cs.uga.edu/~anton/projects/P2/index.html</a></p>
         <h3>Search Algorithms</h3>
-        <h3></h3>
+        <p>On this project, I went the farthest beyond the requirements. Algorithms included are:</p>
+        <ul>
+            <li>A*</li>
+            <li>Breadth First</li>
+            <li>Depth First</li>
+            <li>Dijkstra</li>
+            <li>Best First</li>
+            <li>RRT (Rapidly-exploring Random Tree</li>
+        </ul>
+        <p><a href="http://cobweb.cs.uga.edu/~anton/projects/P3/index.html">http://cobweb.cs.uga.edu/~anton/projects/P3/index.html</a></p>
+        <h3>Unity Project</h3>
+        <p><a href="http://cobweb.cs.uga.edu/~anton/projects/P5/index.html">http://cobweb.cs.uga.edu/~anton/projects/P5/index.html</a></p>
       </div>
     `;
   }

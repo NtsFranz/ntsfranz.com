@@ -21,6 +21,8 @@ import '@polymer/app-route/app-route.js';
 import '@polymer/iron-pages/iron-pages.js';
 import '@polymer/iron-selector/iron-selector.js';
 import '@polymer/paper-icon-button/paper-icon-button.js';
+import '@polymer/paper-button/paper-button.js';
+import '@polymer/iron-image/iron-image.js'
 import './my-icons.js';
 
 // Gesture events like tap and track generated from touch will not be
@@ -43,12 +45,17 @@ class AntonFranzluebbers extends PolymerElement {
         }
 
         app-header {
-          color: var(--dark-theme-base-color);
+          color: var(--light-theme-base-color);
           background-color: var(--app-primary-color);
         }
 
         app-header paper-icon-button {
           --paper-icon-button-ink-color: white;
+        }
+        
+        a paper-button {
+          color:var(--light-theme-base-color);
+          text-decoration: none;
         }
       </style>
 
@@ -61,16 +68,16 @@ class AntonFranzluebbers extends PolymerElement {
       <!-- Main content -->
       <app-header-layout fullbleed has-scrolling-region="">
 
-        <app-header slot="header" condenses="" reveals="" effects="resize-title waterfall">
+        <app-header slot="header" condenses="" reveals="" effects="waterfall">
           <app-toolbar>
             <div main-title="">Anton Franzluebbers</div>
             <!--<div condensed-title="">Anton F.</div>-->
-            <div>Projects</div>
-            <div>Links</div>
+            <a name="projects" href="[[rootPath]]projects"><paper-button>Projects</paper-button></a>
+            <a name="projects" href="[[rootPath]]links"><paper-button>Links</paper-button></a>
           </app-toolbar>
-          <app-toolbar class="tall">
-            <div main-title="">Anton Franzluebbers</div>          
-          </app-toolbar>
+          <!--<app-toolbar class="tall">-->
+            <!--&lt;!&ndash;<div main-title="">Anton Franzluebbers</div>          &ndash;&gt;-->
+          <!--</app-toolbar>-->
         </app-header>
 
         <iron-pages selected="[[page]]" attr-for-selected="name" role="main">
