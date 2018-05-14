@@ -22,7 +22,10 @@ import '@polymer/iron-pages/iron-pages.js';
 import '@polymer/iron-selector/iron-selector.js';
 import '@polymer/paper-icon-button/paper-icon-button.js';
 import '@polymer/paper-button/paper-button.js';
-import '@polymer/iron-image/iron-image.js'
+import '@polymer/paper-menu-button/paper-menu-button.js';
+import '@polymer/paper-listbox/paper-listbox.js';
+import '@polymer/paper-item/paper-item.js';
+import '@polymer/iron-image/iron-image.js';
 import './my-icons.js';
 
 // Gesture events like tap and track generated from touch will not be
@@ -43,6 +46,21 @@ class AntonFranzluebbers extends PolymerElement {
 
           display: block;
         }
+        
+        ::selection {
+          background: var(--app-primary-color);
+        }
+        
+        app-drawer {
+          background-color: var(--dark-theme-background-color);
+          color: var(--dark-theme-base-color);
+        }
+        
+        app-drawer a {
+          text-decoration: none;
+          color: black;
+          background-color:black;
+        }
 
         app-header {
           color: var(--light-theme-base-color);
@@ -53,9 +71,34 @@ class AntonFranzluebbers extends PolymerElement {
           --paper-icon-button-ink-color: white;
         }
         
+        app-header paper-button:hover {
+          background-color: var(--paper-green-800);
+        }       
+        
+        
         a paper-button {
           color:var(--light-theme-base-color);
           text-decoration: none;
+        }
+        
+        @media (max-width: 450px) {
+          .drawer-hide {
+            display:block;
+          }
+          
+          .toolbar-hide {
+            display:none;
+          }
+        }
+        
+        @media (min-width: 450px) {
+          .drawer-hide {
+            display:none;
+          }
+          
+          .toolbar-hide {
+            display:block;
+          }
         }
       </style>
 
@@ -64,28 +107,41 @@ class AntonFranzluebbers extends PolymerElement {
 
       <app-route route="{{route}}" pattern="[[rootPath]]:page" data="{{routeData}}" tail="{{subroute}}">
       </app-route>
-
-      <!-- Main content -->
-      <app-header-layout fullbleed has-scrolling-region="">
-
-        <app-header slot="header" condenses="" reveals="" effects="waterfall">
-          <app-toolbar>
-            <div main-title="">Anton Franzluebbers</div>
-            <!--<div condensed-title="">Anton F.</div>-->
-            <a name="projects" href="[[rootPath]]projects"><paper-button>Projects</paper-button></a>
-            <a name="projects" href="[[rootPath]]links"><paper-button>Links</paper-button></a>
-          </app-toolbar>
-          <!--<app-toolbar class="tall">-->
-            <!--&lt;!&ndash;<div main-title="">Anton Franzluebbers</div>          &ndash;&gt;-->
-          <!--</app-toolbar>-->
-        </app-header>
-
-        <iron-pages selected="[[page]]" attr-for-selected="name" role="main">
-          <projects-view name="projects"></projects-view>
-          <links-view name="links"></links-view>
-          <my-view404 name="view404"></my-view404>
-        </iron-pages>
-      </app-header-layout>
+        
+      <app-drawer-layout fullbleed="" narrow="{{narrow}}">
+      
+        <app-drawer class="drawer-hide" id="drawer" slot="drawer" swipe-open="[[narrow]]">
+          <paper-listbox selected="[[page]]" attr-for-selected="name" class="drawer-list" role="navigation">
+-           <a name="projects" href="[[rootPath]]projects" tabindex="-1"><paper-item>Projects</paper-item></a>
+-           <a name="links" href="[[rootPath]]links" tabindex="-1"><paper-item>Links</paper-item></a>
+-         </paper-listbox>
+        </app-drawer>
+      
+        <!-- Main content -->
+        <app-header-layout has-scrolling-region="">
+          
+          
+          <app-header slot="header" condenses="" reveals="" effects="waterfall">
+              
+            <app-toolbar>
+              <paper-icon-button class="drawer-hide" icon="my-icons:menu" drawer-toggle=""></paper-icon-button>
+              <div main-title="">Anton Franzluebbers</div>
+              <!--<div condensed-title="">Anton F.</div>-->
+              <a class="toolbar-hide" name="projects" href="[[rootPath]]projects"><paper-button>Projects</paper-button></a>
+              <a class="toolbar-hide" name="projects" href="[[rootPath]]links"><paper-button>Links</paper-button></a>
+            </app-toolbar>
+            <!--<app-toolbar class="tall">-->
+              <!--&lt;!&ndash;<div main-title="">Anton Franzluebbers</div>          &ndash;&gt;-->
+            <!--</app-toolbar>-->
+          </app-header>
+  
+          <iron-pages selected="[[page]]" attr-for-selected="name" role="main">
+            <projects-view name="projects"></projects-view>
+            <links-view name="links"></links-view>
+            <my-view404 name="view404"></my-view404>
+          </iron-pages>
+        </app-header-layout>
+      </app-drawer-layout>
     `;
   }
 
