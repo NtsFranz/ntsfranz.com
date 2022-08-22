@@ -1,6 +1,4 @@
 <script>
-  import PublicationCard from "$lib/PublicationCard.svelte";
-  import { publications } from "$lib/publications";
 </script>
 
 <div class="tabs">
