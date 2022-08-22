@@ -1,13 +1,5 @@
 <script>
-  import "bulma"
-
-  import PublicationCard from "$lib/PublicationCard.svelte";
-  import { publications } from "$lib/publications";
-  import { Tab, TabList, TabPanel, Tabs } from "$lib/Tabs/tabs.js";
-  import { lab_projects } from "$lib/lab_projects";
-  import { personal_projects } from "$lib/personal_projects";
-  import { class_projects } from "$lib/class_projects";
-  import PersonalProjectCard from "$lib/PersonalProjectCard.svelte";
+  import "bulma";
 </script>
 
 <svelte:head>
@@ -15,19 +7,20 @@
 </svelte:head>
 
 <section class="hero">
-  <div class="hero-body">
-    <p class="title">
-      Anton Franzluebbers
-    </p>
-    <p class="subtitle">
-      anton@uga.edu
-    </p>
+  <div class="hero-body is-flex is-align-items-center">
+    <figure class="image is-128x128 mr-4">
+      <img src="/profile_1024.png" class="is-rounded " />
+    </figure>
+    <div>
+      <p class="title">Anton Franzluebbers</p>
+      <p class="subtitle">anton@uga.edu</p>
+    </div>
   </div>
 </section>
 
 <div class="container">
 
-  <slot/>
+  <slot />
 
 </div>
 

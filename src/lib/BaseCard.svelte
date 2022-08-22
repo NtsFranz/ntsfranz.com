@@ -4,7 +4,7 @@
 
 <div class="card">
   <div class="card-image">
-    <figure class="image is-5by2">
+    <figure class="image is-16by9">
       <img src={data.coverImg} alt="cover">
     </figure>
   </div>
@@ -32,12 +32,16 @@
     border-radius: 0.5rem;
   }
 
+  .card-image {
+    background-color: #eee;
+  }
+
   .card-image:first-child img {
     border-top-left-radius: 0.5rem;
     border-top-right-radius: 0.5rem;
   }
 
   .card-image > figure > img {
-    object-fit: cover;
+    object-fit: contain;
   }
 </style>
