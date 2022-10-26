@@ -25,9 +25,9 @@
 </div>
 
 <style global>
-  div.cards-container > div {
+  :global(div.cards-container > div) {
     min-width: 10em;
-    max-width: 40em;
+    max-width: 39em;
     flex-basis: 30rem;
     flex-grow: 1;
     flex-shrink: 1;

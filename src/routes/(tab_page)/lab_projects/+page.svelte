@@ -204,9 +204,4 @@
 </div>
 
 <style>
-  .cards-container > div {
-    min-width: 10em;
-    max-width: 40em;
-    margin: 1em;
-  }
 </style>
