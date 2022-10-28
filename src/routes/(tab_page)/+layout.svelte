@@ -8,9 +8,11 @@
 
 <section class="hero">
 	<div class="hero-body is-flex is-align-items-center">
-		<figure class="image is-128x128 mr-4">
-			<img src="/profile_1024.png" class="is-rounded " />
-		</figure>
+		<a href="/">
+			<figure class="image is-128x128 mr-4">
+				<img src="/profile_1024.png" class="is-rounded " />
+			</figure>
+		</a>
 		<div>
 			<p class="title">Anton Franzluebbers</p>
 			<p class="subtitle">anton@uga.edu</p>
@@ -35,15 +37,16 @@
   }
 
   .container {
-	  padding: .3rem;
+    padding: .3rem;
   }
 
   @media only screen and (max-width: 700px) {
     .title {
       font-size: 1.5rem;
     }
-	  .subtitle {
-		  font-size: 1rem;
-	  }
+
+    .subtitle {
+      font-size: 1rem;
+    }
   }
 </style>

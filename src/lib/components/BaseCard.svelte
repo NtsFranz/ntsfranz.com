@@ -2,7 +2,7 @@
   export let data = {};
 </script>
 
-<div class="card">
+<div class="card" id="{data.title}">
   <div class="card-image">
     <figure class="image is-16by9">
       <img src={data.coverImg} alt="cover" class:coverFit={data.coverImgFit} class="coverImg">

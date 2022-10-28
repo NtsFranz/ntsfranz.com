@@ -45,6 +45,17 @@
 			<p>Users join other users in a meeting space to meet and to collaborate. Whiteboards, presentation screens, and
 				shared activities help users engage with each other. conVRged has an advantage over passive communication
 				technologies, such as video chat, because it provides an increased sense of participation and engagement.</p>
+			<hr>
+			<p>Tools Used:</p>
+			<ul>
+				<li>Unity</li>
+				<ul>
+					<li>Photon</li>
+					<li>VelNet (custom-built networking system)</li>
+					<li>Oculus SDK for hand tracking</li>
+				</ul>
+				<li>Blender</li>
+			</ul>
 		</BaseCard>
 	</div>
 
@@ -75,6 +86,10 @@
 				   class="button is-light is-link">
 					Oculus Rift Store Page (Requires Access)
 				</a>
+				<a href="https://vel.engr.uga.edu/virtual-land-surveying-baffour2021/" target="_blank"
+				   class="button is-light is-link">
+					Download
+				</a>
 			</div>
 			<p>Engineering Education in VR at UGA</p>
 			<p>Land Surveying</p>
@@ -86,6 +101,16 @@
 			<p>Statics</p>
 			<ul>
 				<li>Practice statics problems with the benefit of 3D problem visualization.</li>
+			</ul>
+			<hr>
+			<p>Tools Used:</p>
+			<ul>
+				<li>Unity</li>
+				<ul>
+					<li>Photon</li>
+					<li>Oculus P2P Networking (earlier in development)</li>
+				</ul>
+				<li>Blender</li>
 			</ul>
 		</BaseCard>
 	</div>
@@ -118,6 +143,8 @@
 				developed for various studies on multiple platforms.</p>
 			<p>In particular, entire classes of students were tasked with using ENGREDUVR on their personal laptops using VEL
 				Apps Hub.</p>
+			<hr>
+			<p>Tools Used: Electron</p>
 		</BaseCard>
 	</div>
 
@@ -144,6 +171,17 @@
 				that optimizes the task area and the center of the view while maintaining high framerates for VR. Annotation is
 				performed in realtime on the GPU using compute shaders, and the resulting annotations can be exported to the
 				disk for use in training data for machine learning algorithms.</p>
+			<hr>
+			<p>Tools Used:</p>
+			<ul>
+				<li>Unity</li>
+				<ul>
+					<li>Compute Shaders</li>
+					<li>WMR SDK</li>
+				</ul>
+				<li>Blender</li>
+				<li>CloudCompare</li>
+			</ul>
 		</BaseCard>
 	</div>
 
@@ -173,6 +211,17 @@
 			<p>Used in cooperation with the School of Veterinary Medicine to train the procedure of the neurological
 				examination.</p>
 			<p>A study was performed comparing a reality-based user interface to a menu-based approach.</p>
+			<hr>
+			<p>Tools Used:</p>
+			<ul>
+				<li>Unity</li>
+				<ul>
+					<li>Nav Agents</li>
+					<li>Animation Controllers</li>
+				</ul>
+				<li>Blender (animations)</li>
+				<li>Maya</li>
+			</ul>
 		</BaseCard>
 	</div>
 
@@ -198,6 +247,15 @@
 			<p>Used to evaluate performance benefits of a haptic prop for training in VR in a putting application.</p>
 			<p>Was also later used in mapping large-scale environments to the virtual world before augmented virtuality
 				approaches became common.</p>
+			<hr>
+			<p>Tools Used:</p>
+			<ul>
+				<li>Unity</li>
+				<ul>
+					<li>Custom Shaders</li>
+				</ul>
+				<li>Blender</li>
+			</ul>
 		</BaseCard>
 	</div>
 
