@@ -4,6 +4,10 @@
   import { feature_cards } from "$lib/js/feature_cards";
   import { onDestroy, onMount } from "svelte";
 
+  export const ssr = false;
+  export const csr = true;
+
+  let finished = false;
   let feature_cards_shuffled = shuffle(feature_cards);
 
   // https://stackoverflow.com/a/2450976
@@ -25,14 +29,29 @@
     return array;
   }
 
-  let slideshow;
 
+  let slideshow;
+  let reversing = false;
   let inter;
+
   onMount(() => {
+    finished = true;
+    inter = setInterval(() => {
+      if (slideshow.scrollWidth - slideshow.scrollLeft - slideshow.offsetWidth <= 0) {
+        reversing = true;
+      }
+
+      if (slideshow.scrollLeft <= 0) {
+        reversing = false;
+      }
+      slideshow.scrollLeft += 5 * (reversing ? -1 : 1);
+    }, 33);
   });
 
   onDestroy(() => {
-    if (inter) clearInterval(inter);
+    if (inter) {
+      clearInterval(inter);
+    }
   });
 </script>
 
@@ -70,7 +89,7 @@
 </div>
 
 
-<div id="slideshow" class="slideshow">
+<div bind:this={slideshow} class="slideshow" class:hide={!finished}>
 	<div class="is-flex is-justify-content-center cards-container">
 		{#each feature_cards_shuffled as card}
 			<div>
@@ -78,22 +97,6 @@
 			</div>
 		{/each}
 	</div>
-	<script>
-    let slideshow = document.getElementById("slideshow");
-
-    let reversing = false;
-
-    setInterval(() => {
-      if (slideshow.scrollWidth - slideshow.scrollLeft - slideshow.offsetWidth <= 0) {
-        reversing = true;
-      }
-
-      if (slideshow.scrollLeft <= 0) {
-        reversing = false;
-      }
-      slideshow.scrollLeft += 5 * (reversing ? -1 : 1);
-    }, 33);
-	</script>
 </div>
 
 <style>
@@ -103,6 +106,12 @@
     margin-top: 4em;
     overflow-x: hidden;
     scroll-behavior: smooth;
+    opacity: 1;
+    transition: .5s opacity;
+  }
+
+  .slideshow.hide {
+    opacity: 0;
   }
 
   .slideshow > div {
@@ -115,6 +124,10 @@
   }
 
   @media only screen and (max-width: 700px) {
+    .hero-body {
+      padding: 2rem 1.5rem;
+    }
+
     .buttons {
       flex-direction: column;
       align-items: normal;
@@ -122,6 +135,10 @@
 
     .slideshow > div > div {
       width: 20em;
+    }
+
+    .slideshow {
+      margin-top: 1em;
     }
   }
 </style>

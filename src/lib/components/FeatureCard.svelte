@@ -2,7 +2,7 @@
 	export let data = {};
 </script>
 
-<a href="/{data.page}#{data.title}">
+<a href="/{data.page}#{data.title.replaceAll(' ', '-')}">
 	<div class="card">
 		<div class="card-image">
 			<figure class="image is-16by9">
@@ -46,5 +46,13 @@
 
   .card-image .coverFit {
     object-fit: cover;
+  }
+
+  a > div {
+    transition: .1s transform;
+  }
+
+  a:hover > div {
+    transform: scale(1.03);
   }
 </style>

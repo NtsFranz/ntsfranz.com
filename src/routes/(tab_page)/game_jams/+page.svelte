@@ -55,9 +55,9 @@
 				Group:
 			</p>
 			<ul>
-				<li>Catherine Ball</li>
-				<li>Brook Burgh</li>
 				<li>Anton Franzluebbers</li>
+				<li>Brook Burgh</li>
+				<li>Catherine Ball</li>
 			</ul>
 		</BaseCard>
 	</div>
@@ -93,9 +93,9 @@
 				Group:
 			</p>
 			<ul>
-				<li>Catherine Ball</li>
-				<li>Brook Burgh</li>
 				<li>Anton Franzluebbers</li>
+				<li>Brook Burgh</li>
+				<li>Catherine Ball</li>
 			</ul>
 		</BaseCard>
 	</div>

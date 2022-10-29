@@ -90,6 +90,14 @@ export const feature_cards = [
 		coverImgFit: true,
 		squareImg: "/images/personal_projects/butter_small.png",
 		page: "personal_projects"
+	},
+	{
+		title: "Player Count Graphing",
+		subtitle: "CCU visualizations for Gorilla Tag",
+		coverImg: "/images/personal_projects/player_count_2_black.webp",
+		coverImgFit: false,
+		squareImg: "/images/personal_projects/gt_logo.webp",
+		page: "personal_projects"
 	}
 
 ];

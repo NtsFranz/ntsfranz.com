@@ -24,6 +24,7 @@
 			<div class="buttons">
 				<a href="https://ignitevr.gg/spark/" target="_blank" class="button is-light is-link">Download and Features</a>
 				<a href="https://echopedia.gg/wiki/Spark" target="_blank" class="button is-light is-link">Wiki</a>
+				<a href="https://github.com/NtsFranz/Spark" target="_blank" class="button is-light is-link">GitHub</a>
 			</div>
 			<p>Spark is a Windows desktop program that can record, process, and upload EchoVR data from either a local
 				EchoVR client or an Oculus Quest on the same network.</p>
@@ -45,7 +46,7 @@
 			<hr>
 			<p>Tools Used:</p>
 			<ul>
-				<li>WPF (using C#)</li>
+				<li>.NET 6 WPF (using C#)</li>
 				<li>Native Windows APIs for window placement and border removal of overlays</li>
 			</ul>
 		</BaseCard>
@@ -68,6 +69,7 @@
 				<a href="https://echopedia.gg/wiki/Spark_Mini" target="_blank" class="button is-light is-link">
 					Wiki (with download links)
 				</a>
+				<a href="https://github.com/NtsFranz/Spark-Mini" target="_blank" class="button is-light is-link">GitHub</a>
 			</div>
 			<p>A multiplatform version of Spark that is built with Flutter.</p>
 			<p>Just like the main Spark application, it interacts with Echo VR's API over the local network to show detailed
@@ -117,6 +119,7 @@
 				<li>Svelte (JS Web Framework)</li>
 				<li>Hugo (Static site generator)</li>
 				<li>three.js (3D visualizations in the browser)</li>
+				<li>Oracle Cloud</li>
 			</ul>
 		</BaseCard>
 	</div>
@@ -150,6 +153,7 @@
 			<ul>
 				<li>MediaWiki</li>
 				<li>Python (web scraping and automatic page generation using MediaWiki API)</li>
+				<li>Oracle Cloud</li>
 			</ul>
 		</BaseCard>
 	</div>
@@ -222,6 +226,44 @@
 			<ul>
 				<li>C# (Replay file creator and reader library used in both Spark and the Replay Viewer)</li>
 				<li>JS (Web-based replay reader)</li>
+			</ul>
+		</BaseCard>
+	</div>
+
+
+	<div>
+		<BaseCard data={{
+              title: "Player Count Graphing",
+              subtitle: "CCU visualizations for Gorilla Tag",
+              coverImg: "/images/personal_projects/player_count_2_black.webp",
+              coverImgFit: false,
+              squareImg: "/images/personal_projects/gt_logo.webp",
+            }}>
+			<div>
+				<span class="tag is-info">Discord</span>
+				<span class="tag is-info">REST API</span>
+			</div>
+			<br>
+			<div class="buttons">
+				<a href="https://github.com/NtsFranz/Photon-Player-Count" target="_blank" class="button is-light is-link">GitHub</a>
+				<a href="http://ntsfranz.crabdance.com" target="_blank" class="button is-light is-link">API</a>
+			</div>
+			<p>Originally, this Discord bot was intended to show if any other people were playing the game, so that people would have someone else to play with. As the game grew, then exploded in popularity, it became a way for people share in the excitement that came with new CCU peaks every day.</p>
+			<p>Every Gorilla Tag client sends the current user count to a server when they join and leave. The design of the data collection was great for small populations, but has caused challenges at scale.</p>
+			<p>Approximately 20-30 requests are sent to the server per second, and a lot of the data is inaccurate due to delayed sending when the headset goes to sleep, so I had to make heavy use of caching and filtering algorithms and secondary tables.</p>
+			<hr>
+			<p>Tools Used:</p>
+			<ul>
+				<li>Python</li>
+				<ul>
+					<li>discord.py</li>
+					<li>Flask (not currently)</li>
+					<li>FastAPI (REST API)</li>
+				</ul>
+				<li>SQLite (not currently)</li>
+				<li>MySQL (MariaDB)</li>
+				<li>Google Cloud Platform (not currently)</li>
+				<li>Oracle Cloud</li>
 			</ul>
 		</BaseCard>
 	</div>

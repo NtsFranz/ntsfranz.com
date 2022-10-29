@@ -1,5 +1,7 @@
 <script>
-  import "bulma";
+  import "bulma"
+  export const ssr = true;
+  export const csr = false;
 </script>
 
 <svelte:head>
