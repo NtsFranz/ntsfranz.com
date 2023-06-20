@@ -1,58 +1,54 @@
 <script>
-  import "bulma";
-  import FeatureCard from "$lib/components/FeatureCard.svelte";
-  import { feature_cards } from "$lib/js/feature_cards";
-  import { onDestroy, onMount } from "svelte";
+	import 'bulma';
+	import FeatureCard from '$lib/components/FeatureCard.svelte';
+	import { feature_cards } from '$lib/js/feature_cards';
+	import { onDestroy, onMount } from 'svelte';
 
-  export const ssr = false;
-  export const csr = true;
+	let finished = false;
+	let feature_cards_shuffled = shuffle(feature_cards);
 
-  let finished = false;
-  let feature_cards_shuffled = shuffle(feature_cards);
+	// https://stackoverflow.com/a/2450976
+	function shuffle(array) {
+		let currentIndex = array.length,
+			randomIndex;
 
-  // https://stackoverflow.com/a/2450976
-  function shuffle(array) {
-    let currentIndex = array.length, randomIndex;
+		// While there remain elements to shuffle.
+		while (currentIndex !== 0) {
+			// Pick a remaining element.
+			randomIndex = Math.floor(Math.random() * currentIndex);
+			currentIndex--;
 
-    // While there remain elements to shuffle.
-    while (currentIndex !== 0) {
+			// And swap it with the current element.
+			[array[currentIndex], array[randomIndex]] = [array[randomIndex], array[currentIndex]];
+		}
 
-      // Pick a remaining element.
-      randomIndex = Math.floor(Math.random() * currentIndex);
-      currentIndex--;
+		return array;
+	}
 
-      // And swap it with the current element.
-      [array[currentIndex], array[randomIndex]] = [
-        array[randomIndex], array[currentIndex]];
-    }
+	let slideshow;
+	let reversing = false;
+	let inter;
 
-    return array;
-  }
+	onMount(() => {
+		finished = true;
+		// TODO use next anim frame instead
+		inter = setInterval(() => {
+			if (slideshow.scrollWidth - slideshow.scrollLeft - slideshow.offsetWidth <= 0) {
+				reversing = true;
+			}
 
+			if (slideshow.scrollLeft <= 0) {
+				reversing = false;
+			}
+			slideshow.scrollLeft += 5 * (reversing ? -1 : 1);
+		}, 33);
+	});
 
-  let slideshow;
-  let reversing = false;
-  let inter;
-
-  onMount(() => {
-    finished = true;
-    inter = setInterval(() => {
-      if (slideshow.scrollWidth - slideshow.scrollLeft - slideshow.offsetWidth <= 0) {
-        reversing = true;
-      }
-
-      if (slideshow.scrollLeft <= 0) {
-        reversing = false;
-      }
-      slideshow.scrollLeft += 5 * (reversing ? -1 : 1);
-    }, 33);
-  });
-
-  onDestroy(() => {
-    if (inter) {
-      clearInterval(inter);
-    }
-  });
+	onDestroy(() => {
+		if (inter) {
+			clearInterval(inter);
+		}
+	});
 </script>
 
 <svelte:head>
@@ -63,19 +59,16 @@
 	<section class="hero">
 		<div class="hero-body is-flex is-align-items-center is-justify-content-center">
 			<figure class="image is-128x128 mr-4">
-				<img src="/profile_1024.png" class="is-rounded " />
+				<img src="/profile_1024.png" class="is-rounded" alt="pfp" />
 			</figure>
 			<div>
 				<p class="title">Anton Franzluebbers</p>
 				<p class="subtitle">anton@uga.edu</p>
 			</div>
-
 		</div>
-
 	</section>
 
 	<div class="is-flex is-justify-content-center">
-
 		<div class="buttons has-addons">
 			<a class="button" href="/publications">Publications</a>
 			<a class="button" href="/lab_projects">Lab Projects</a>
@@ -84,10 +77,7 @@
 			<a class="button" href="/game_jams">Game Jams</a>
 		</div>
 	</div>
-
-
 </div>
-
 
 <div bind:this={slideshow} class="slideshow" class:hide={!finished}>
 	<div class="is-flex is-justify-content-center cards-container">
@@ -100,45 +90,44 @@
 </div>
 
 <style>
+	.slideshow {
+		width: 100%;
+		margin-top: 4em;
+		overflow-x: hidden;
+		scroll-behavior: smooth;
+		opacity: 1;
+		transition: 0.5s opacity;
+	}
 
-  .slideshow {
-    width: 100%;
-    margin-top: 4em;
-    overflow-x: hidden;
-    scroll-behavior: smooth;
-    opacity: 1;
-    transition: .5s opacity;
-  }
+	.slideshow.hide {
+		opacity: 0;
+	}
 
-  .slideshow.hide {
-    opacity: 0;
-  }
+	.slideshow > div {
+		width: fit-content;
+	}
 
-  .slideshow > div {
-    width: fit-content;
-  }
+	.slideshow > div > div {
+		width: 40em;
+		margin: 1em;
+	}
 
-  .slideshow > div > div {
-    width: 40em;
-    margin: 1em;
-  }
+	@media only screen and (max-width: 700px) {
+		.hero-body {
+			padding: 2rem 1.5rem;
+		}
 
-  @media only screen and (max-width: 700px) {
-    .hero-body {
-      padding: 2rem 1.5rem;
-    }
+		.buttons {
+			flex-direction: column;
+			align-items: normal;
+		}
 
-    .buttons {
-      flex-direction: column;
-      align-items: normal;
-    }
+		.slideshow > div > div {
+			width: 20em;
+		}
 
-    .slideshow > div > div {
-      width: 20em;
-    }
-
-    .slideshow {
-      margin-top: 1em;
-    }
-  }
+		.slideshow {
+			margin-top: 1em;
+		}
+	}
 </style>

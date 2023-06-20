@@ -1,7 +1,5 @@
 <script>
-  import "bulma"
-  export const ssr = true;
-  export const csr = false;
+	import 'bulma';
 </script>
 
 <svelte:head>
@@ -12,7 +10,7 @@
 	<div class="hero-body is-flex is-align-items-center">
 		<a href="/">
 			<figure class="image is-128x128 mr-4">
-				<img src="/profile_1024.png" class="is-rounded " />
+				<img src="/profile_1024.png" class="is-rounded" alt="pfp" />
 			</figure>
 		</a>
 		<div>
@@ -23,32 +21,30 @@
 </section>
 
 <div class="container">
-
 	<slot />
-
 </div>
 
 <style global>
-  :global(div.cards-container > div) {
-    min-width: 10em;
-    max-width: 39em;
-    flex-basis: 30rem;
-    flex-grow: 1;
-    flex-shrink: 1;
-    margin: 1em;
-  }
+	:global(div.cards-container > div) {
+		min-width: 10em;
+		max-width: 39em;
+		flex-basis: 30rem;
+		flex-grow: 1;
+		flex-shrink: 1;
+		margin: 1em;
+	}
 
-  .container {
-    padding: .3rem;
-  }
+	.container {
+		padding: 0.3rem;
+	}
 
-  @media only screen and (max-width: 700px) {
-    .title {
-      font-size: 1.5rem;
-    }
+	@media only screen and (max-width: 700px) {
+		.title {
+			font-size: 1.5rem;
+		}
 
-    .subtitle {
-      font-size: 1rem;
-    }
-  }
+		.subtitle {
+			font-size: 1rem;
+		}
+	}
 </style>

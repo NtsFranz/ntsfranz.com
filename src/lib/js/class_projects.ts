@@ -1,3 +1,1 @@
-export const class_projects = [
-
-];
+export const class_projects = [];
