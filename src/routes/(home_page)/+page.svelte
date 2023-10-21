@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
 	import 'bulma';
 	import FeatureCard from '$lib/components/FeatureCard.svelte';
 	import { feature_cards } from '$lib/js/feature_cards';
@@ -8,7 +8,7 @@
 	let feature_cards_shuffled = shuffle(feature_cards);
 
 	// https://stackoverflow.com/a/2450976
-	function shuffle(array) {
+	function shuffle(array: any[]) {
 		let currentIndex = array.length,
 			randomIndex;
 
@@ -25,14 +25,14 @@
 		return array;
 	}
 
-	let slideshow;
+	let slideshow: HTMLDivElement;
 	let reversing = false;
-	let inter;
 
 	onMount(() => {
 		finished = true;
-		// TODO use next anim frame instead
-		inter = setInterval(() => {
+		let frame: number;
+
+		function step() {
 			if (slideshow.scrollWidth - slideshow.scrollLeft - slideshow.offsetWidth <= 0) {
 				reversing = true;
 			}
@@ -40,14 +40,15 @@
 			if (slideshow.scrollLeft <= 0) {
 				reversing = false;
 			}
-			slideshow.scrollLeft += 5 * (reversing ? -1 : 1);
-		}, 33);
-	});
-
-	onDestroy(() => {
-		if (inter) {
-			clearInterval(inter);
+			slideshow.scrollLeft += 1 * (reversing ? -1 : 1);
+			frame = requestAnimationFrame(step);
 		}
+
+		step();
+
+		return () => {
+			cancelAnimationFrame(frame);
+		};
 	});
 </script>
 
