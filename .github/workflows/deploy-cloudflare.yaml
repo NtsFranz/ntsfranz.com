@@ -2,9 +2,6 @@ on: push
   
 jobs:
     publish-site:
-      defaults:
-        run:
-          working-directory: ${{env.SUBFOLDER}}
       runs-on: ubuntu-latest
       permissions:
         contents: read
