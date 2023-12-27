@@ -1,5 +1,33 @@
 export const publications = [
 	{
+		title:
+			'Versatile Mixed-method Locomotion under Free-hand and Controller-based Virtual Reality Interfaces',
+		subtitle: 'Conference Paper - ACM VRST 2023',
+		coverImg:
+			'https://dl.acm.org/cms/attachment/html/10.1145/3611659.3615701/assets/html/images/vrst2023-22-fig1.jpg',
+		publicationImg:
+			'https://vrst.acm.org/vrst2023/wp-content/uploads/VRST2023_ACM_logo_Vertical.png',
+		publicationLink: 'https://dl.acm.org/doi/abs/10.1145/3611659.3615701',
+		bibTex: `@inproceedings{10.1145/3611659.3615701,
+  author = {Franzluebbers, Anton and Johnsen, Kyle},
+  title = {Versatile Mixed-Method Locomotion under Free-Hand and Controller-Based Virtual Reality Interfaces},
+  year = {2023},
+  isbn = {9798400703287},
+  publisher = {Association for Computing Machinery},
+  address = {New York, NY, USA},
+  url = {https://doi.org/10.1145/3611659.3615701},
+  doi = {10.1145/3611659.3615701},
+  abstract = {Locomotion systems that allow the user to interact with large virtual spaces require precise input, competing with the same inputs available for performing a task in the virtual world. Despite extensive research on hand tracking input modalities, there is a lack of a widely adopted mechanism that offers general-purpose, high-precision locomotion across various applications. This research aims to address this gap by proposing a design that combines teleportation with a grab-pull locomotion scheme to bridge the divide between long-distance and high-precision locomotion in both a tracked-controller and free-hand environment. The implementation details for both tracked controller and tracked hand environments are presented and evaluated through a user study. The study findings indicate that each locomotion mechanism holds value for different tasks, with grab-pull providing more benefit in scenarios where smaller, more precise positioning is required. As found in prior research, controller tracking was found to be faster than hand tracking, but all participants were able to successfully use the locomotion system with both interfaces.},
+  booktitle = {Proceedings of the 29th ACM Symposium on Virtual Reality Software and Technology},
+  articleno = {2},
+  numpages = {10},
+  keywords = {controller, hand tracking, interaction, free-hand, locomotion, virtual reality},
+  location = {<conf-loc>, <city>Christchurch</city>, <country>New Zealand</country>, </conf-loc>},
+  series = {VRST '23}
+}`,
+		date: '9-11 October 2023'
+	},
+	{
 		title: 'Virtual Reality Point Cloud Annotation',
 		subtitle: 'Poster - IEEE-VR 2022',
 		coverImg: '/images/datafoldvr_cover.jpg',
@@ -14,7 +42,7 @@ export const publications = [
   year={2022},
   organization={IEEE}
 }`,
-		date: '12-16 March 2022 '
+		date: '12-16 March 2022'
 	},
 	{
 		title:
